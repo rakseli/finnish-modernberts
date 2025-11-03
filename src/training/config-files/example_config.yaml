@@ -1,0 +1,141 @@
+# The input data dir. Should contain jsonl files
+train_dir: '/scratch/<project_number>/<user_name>/finnish-modernberts/data/train_data'
+
+# The validation data file
+val_file: '/scratch/<project_number>/<user_name>/finnish-modernberts/data/validation_data/validation_data.jsonl'
+
+# The test data file
+test_file: '/scratch/<project_number>/<user_name>/finnish-modernberts/data/test_data/test_data.jsonl'
+
+# The context extension data dir
+long_dir: '/scratch/<project_number>/<user_name>/finnish-modernberts/data/context_extension'
+
+# The annealing data dir
+annealing_dir: '/scratch/<project_number>/<user_name>/finnish-modernberts/data/annealing_data'
+
+# Wheter to use long sequence data
+long_sequences: False
+# Wheter to test after training
+do_test: True
+
+# The output directory where the model checkpoints will be written.
+output_dir: '/scratch/<project_number>/<user_name>/finnish-modernberts/results/modernbert/checkpoints'
+
+# The output directory where the model checkpoints will be written. Use this when you want to load a checkpoint.
+checkpoint_path: null
+
+# Tokenizer path or model id
+tokenizer_path: '/scratch/<project_number>/<user_name>/finnish-modernberts/results/tokenizers/modernbert_bpe_hf_pretrained'
+
+# The output directory where the tensorboard logs will be written.
+tensorboard_dir: '/scratch/<project_number>/<user_name>/finnish-modernberts/results/modernbert/tensorboard'
+
+# Name of the run
+run_name: 'main-modernbert-large-production'
+
+# Exit if there is no time for new steps
+exit_duration_in_mins: 2870
+
+# Model size. tiny, base and large can be given
+model_size: 'large'
+
+# No description provided
+optimizer: 'adamw'
+
+#Whether to use ZeroRedundancyOptimizer
+use_zero: true
+
+# Total number of training steps to perform. Defaults to 400B tokens  so 8832000
+max_steps: 8832000
+
+# local attention window size
+window_size: 128
+
+# random seed for initialization
+seed: 42
+
+# frequency of saving model
+save_steps: 3000
+
+# frequency of eval step.
+eval_steps: 3000
+
+# weight decay
+weight_decay: 1.e-06
+
+# Local layer RoPE theta base
+local_rope_theta: 10000
+
+# Global layer RoPE theta base
+global_rope_theta: 10000
+
+# Whether to use RoPE theta warmup.If True, theta is increased imiditially to 1M. Warmup matches sequence length warmup.
+rope_theta_warmup: True
+
+# The maximum total input sequence length after tokenization
+seq_length: 1024
+
+# Wheter to use sequence length warmup. If True, seq length is incresed into final in 6 steps.
+seq_length_warmup: True
+
+# Proportion of training before starting increasing the sequence lenght.
+seq_length_warmup_proportion: 0.85
+
+# Final sequence lenght when sequence length warmup is used.
+final_seq_length: 8192
+
+# No description provided
+lr_scheduler: 'wsd'
+
+# The initial learning rate
+learning_rate: 3.e-4
+
+seq_len_lr: 5.e-5
+
+# Proportion of training to perform linear learning rate warmup for.
+lr_warmup_proportion: 0.01
+
+# Proportion of training before anneling the constant learning rate
+wsd_annealing_proportion: 0.97
+
+# Proportion of second constant steps before annealing
+wsd_second_constant_proportion: 0.85
+
+# per device batch size for training per GPUs
+per_device_batch_size: 1
+
+# Wheter to use sequence length warmup.
+batch_size_warmup: True
+
+# Proportion of training to perform linear learning rate warmup for.
+bs_warmup_proportion: 0.029
+
+# constant batch size when batch size warmup is used
+per_device_constant_batch_size: 18
+
+# annealing batch size when sequence lenght is increased, should be proportional to final sequence lenght so that seen tokens per step is stays similar
+
+per_device_anneling_batch_size: 1
+
+per_device_eval_batch_size: 4
+
+# Wheter to use only high quality data sources
+high_quality: False
+
+# Wheter to use high quality data  warmup. If True, only high quality sources are used after the warmup
+high_quality_warmup: True
+
+# Proportion of training to use all data sources
+high_quality_warmup_proportion: 0.97
+
+# Wheter to use gradient accumulation
+gradient_accumulation: True
+
+# Number of gradient accumulation steps
+n_gradient_accumulation_steps: 8
+
+n_gradient_accumulation_steps_annealing: 16
+
+english_only: False
+
+logging_level: 'info'
