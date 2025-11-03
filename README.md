@@ -10,7 +10,7 @@
 - `src/scripts` &rarr; example scripts on running training on [LUMI](https://lumi-supercomputer.eu/)
 
 # Reference
-If you wind this code useful, please refer using following citation:
+If you find this code useful, please refer using following citation:
 
 ~~~
 @article{finnish-modernberts,
