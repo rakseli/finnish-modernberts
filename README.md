@@ -7,7 +7,7 @@
 - `src/finetuning` &rarr; code for finetuning models for retrieval evaluation
 - `src/tokenizer` &rarr; code for tokenizer training   
 - `src/training` &rarr; code for model training
-- `src/scripts` &rarr; example scripts on running training on [LUMI]
+- `src/scripts` &rarr; example scripts on running training on [LUMI](https://lumi-supercomputer.eu/)
 
 # Reference
 If you wind this code useful, please refer using following citation:
