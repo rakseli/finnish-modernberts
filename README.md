@@ -1,6 +1,6 @@
 # Finnish ModernBERTs
 - This repository contains most of the code used for the Finnish ModernBERT development
-- for more details refer to the [article]()
+- for more details refer to the [article](https://arxiv.org/abs/2511.09213)
 - `src/data-tools` &rarr; code for basic data processing
     - The code for [Deduplication](https://github.com/ChenghaoMou/text-dedup), [PII-removal](https://github.com/mmanteli/multilingual-PII-tool), and [WikiExtrator](https://github.com/attardi/wikiextractor) are not hosted here, please refer 
      directly to sources.
@@ -13,11 +13,13 @@
 If you find this code useful, please refer using following citation:
 
 ~~~
-@article{finnish-modernberts,
-  author = {Akseli Reunamo and Laura-Maria Peltonen and Hans Moen and Sampo Pyysalo},
-  title = {Pretraining Finnish ModernBERTs},
-  year = {2025},
-  journal={arXiv preprint },
-    url={}, 
+@misc{reunamo2025pretrainingfinnishmodernberts,
+      title={Pretraining Finnish ModernBERTs}, 
+      author={Akseli Reunamo and Laura-Maria Peltonen and Hans Moen and Sampo Pyysalo},
+      year={2025},
+      eprint={2511.09213},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2511.09213}, 
 }
 ~~~
