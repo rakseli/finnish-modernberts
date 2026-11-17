@@ -9,17 +9,18 @@
 - `src/training` &rarr; code for model training
 - `src/scripts` &rarr; example scripts on running training on [LUMI](https://lumi-supercomputer.eu/)
 
-# Reference
-If you find this code useful, please refer using following citation:
+# Known limitations
 
-~~~
-@misc{reunamo2025pretrainingfinnishmodernberts,
-      title={Pretraining Finnish ModernBERTs}, 
-      author={Akseli Reunamo and Laura-Maria Peltonen and Hans Moen and Sampo Pyysalo},
-      year={2025},
-      eprint={2511.09213},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2511.09213}, 
-}
-~~~
+The code has not been engineered or tested for general use. Expect to adapt paths, launchers, and
+environments.
+
+Known limitations of the code used for the released models:
+
+**Pretraining (`src/training/`)**
+- RoPE theta warmup: setting `rotary_emb.base` at runtime does not recompute
+  the rotary frequencies. The new global theta (1M) takes effect only when the
+  model is rebuilt from a checkpoint (on resume or HF export).
+- `no_sync` wraps only the backward pass, so gradients are all-reduced on every
+  micro-batch. The result is correct but slower.
+- Logged train/validation accuracy and gradient norm are not correctly
+  normalized. The logged loss is correct.
